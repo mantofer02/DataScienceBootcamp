@@ -1,8 +1,3 @@
-day,city,temperature,windspeed,event
-1/3/2022,new york,28,12,Snow
-1/3/2022,mumbai,87,15,Fog
-1/4/2022,new york,33,7,Sunny
-1/4/2022,mumbai,92,5,Rain
-1/1/2022,paris,45,20,Sunny
-1/2/2022,paris,50,13,Cloudy
-1/3/2022,paris,54,8,Cloudy
+version https://git-lfs.github.com/spec/v1
+oid sha256:00fd49dc665617e4c7ebd3a40e8f444016a4f0895292d644e815fccc8b26ecbf
+size 228

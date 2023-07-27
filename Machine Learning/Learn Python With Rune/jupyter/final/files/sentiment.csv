@@ -1,14 +1,3 @@
-Text,Label
-"Not worth it", Negative
-"Kind of cheap", Negative
-"Really bad", Negative
-"Didn't work the way we expected", Negative
-"Overpriced for what you get", Negative
-"Could have been much better", Negative
-"Bad experience with this, would not buy", Negative
-"It was great!", Positive
-"So much fun", Positive
-"Great product, would recommend", Positive
-"My grandson loved it", Positive
-"My mother really enjoyed the gift", Positive
-"Great purchase!", Positive
+version https://git-lfs.github.com/spec/v1
+oid sha256:e718e1664cb0177b82d551bd1dd94e7085b69c581d553e36b762557b9d6e6c50
+size 461
