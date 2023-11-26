@@ -1,6 +1,5 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.types import StructField, StructType, IntegerType, LongType, StringType, DateType, DecimalType
-import sys
 import os
 
 
@@ -12,8 +11,7 @@ def init_spark():
 
 def create_df(spark, data_schema, path):
     if path:
-        df = spark.read.format('.csv', schema=data_schema, path=path)
-        print(df.printSchema())
+        df = spark.read.csv(path, schema=data_schema)
         return df
     else:
         return None

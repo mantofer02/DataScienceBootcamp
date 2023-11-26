@@ -1,12 +1,9 @@
-# from functions import init_spark
+import controller
 import sys
 
 
 def main():
-    pass
-    # spark, sc = init_spark()
-    # nums = sc.parallelize([1, 2, 3, 4])
-    # print(nums.map(lambda x: x * x).collect())
+    controller.run(sys.argv[1:])
 
 
 if __name__ == "__main__":
