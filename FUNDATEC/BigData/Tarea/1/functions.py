@@ -44,7 +44,7 @@ def create_schema(file_name):
     elif file_name == "ruta":
         data_schema = StructType([
             StructField("codigo", IntegerType(), True),
-            StructField("nombre", StringType(), True),
+            StructField("nombre_ruta", StringType(), True),
             StructField("kilometros", DecimalType(10, 2), True)
         ])
 
@@ -56,26 +56,40 @@ def is_csv_file(file_path):
     return file_extension.lower() == '.csv'
 
 
-def query_get_best_drivers(database, write_result=False):
+def query_inner_join(df_1, df_2, on_column):
+    return df_1.join(df_2, on=on_column, how="inner")
+
+
+def query_group_data_and_aggregate(df, group_column, name_column, distance_column, date_column):
+    result_df = df.groupBy(group_column, df[name_column]).agg(
+        F.sum(distance_column).alias("total_km"),
+        F.round((F.sum(distance_column) / F.count(date_column)),
+                2).alias("%_kilometros_por_fecha")
+    )
+    return result_df
+
+
+def query_get_best_drivers(database, write_result=False, n=5):
     df_route = database['ruta']
     df_driver = database['ciclista']
     df_activity = database['actividad']
 
-    join_df = df_driver.join(df_activity, on='cedula', how="inner")
-    join_df = join_df.join(df_route, on="codigo", how="inner")
+    join_df = query_inner_join(df_driver, df_activity, on_column='cedula')
+    join_df = query_inner_join(join_df, df_route, on_column='codigo')
 
-    result_df = join_df.groupBy("provincia", df_driver["nombre"]).agg(
-        F.sum("kilometros").alias("total km"), F.round((F.sum("kilometros") / F.count("fecha")), 2).alias("%_kilometros_por_fecha"))
+    result_df = query_group_data_and_aggregate(
+        join_df, "provincia", "nombre", "kilometros", "fecha")
 
     window_spec = Window.partitionBy("provincia").orderBy(
-        F.asc('provincia'), F.desc("total km"))
+        F.asc('provincia'), F.desc("total_km"))
 
     result_df_with_rank = result_df.withColumn(
         "rank", F.row_number().over(window_spec))
 
-    top5_result_df = result_df_with_rank.filter("rank <= 5").drop("rank")
+    top_result_df = result_df_with_rank.filter(
+        "rank <= " + str(n)).drop("rank")
 
     if write_result:
-        top5_result_df.write.csv("results")
+        top_result_df.write.csv("results")
 
-    return top5_result_df
+    return top_result_df
