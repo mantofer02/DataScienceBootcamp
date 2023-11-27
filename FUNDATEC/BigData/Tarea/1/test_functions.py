@@ -1,4 +1,4 @@
-from functions import get_file_name, is_csv_file, query_get_best_drivers, query_inner_join
+from functions import get_file_name, is_csv_file, query_get_best_drivers, query_inner_join, query_group_data_and_aggregate
 from pyspark.sql.functions import col
 from pyspark.sql.types import DoubleType
 from pyspark.sql.types import StructType, StructField, StringType, IntegerType
@@ -69,6 +69,25 @@ def test_query_inner_join(spark_session):
 
     expected_data = [("A", 1, 10), ("B", 2, 20)]
     expected_result = spark_session.createDataFrame(expected_data, schema)
+
+    assert result_df.collect() == expected_result.collect()
+
+
+def test_query_group_data_and_aggregate(spark_session):
+    mock_data = [("Alajuela", "Alberto", 100, "2023-02-24"),
+                 ("Alajuela", "Alberto", 200, "2023-03-24"),
+                 ("Heredia", "Adrian", 200, "2023-03-24")]
+
+    mock_df = spark_session.createDataFrame(
+        mock_data, schema=['provincia', 'nombre', 'kilometros', 'fecha'])
+
+    result_df = query_group_data_and_aggregate(
+        mock_df, "provincia", "nombre", "kilometros", "fecha")
+
+    expected_result = spark_session.createDataFrame(
+        [('Alajuela', 'Alberto', 300, 150), ('Heredia', 'Adrian', 200, 200)],
+        schema=['provincia', 'nombre', 'total km', '%_kilometros_por_fecha']
+    )
 
     assert result_df.collect() == expected_result.collect()
 

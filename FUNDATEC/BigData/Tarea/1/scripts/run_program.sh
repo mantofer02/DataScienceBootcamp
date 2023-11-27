@@ -1,3 +1,3 @@
 #!/bin/bash
 
-spark-submit --master local[2] main.py
+spark-submit --master local[2] main.py actividad.csv ruta.csv ciclistas.csv
