@@ -4,7 +4,7 @@ import functions
 def run(file_paths):
     spark, sc = functions.init_spark()
 
-    data_base = {}
+    database = {}
 
     for path in file_paths:
         if functions.is_csv_file(path) == True:
@@ -14,5 +14,7 @@ def run(file_paths):
             df = functions.create_df(
                 spark=spark, data_schema=schema, path=path)
 
-            data_base[file_name] = df
-            print(df.show())
+            database[file_name] = df
+
+    result_df = functions.query_get_best_drivers(database, write_result=True)
+    print(result_df.show())
