@@ -1,7 +1,7 @@
-from functions import get_file_name, is_csv_file, create_schema, query_get_best_drivers
-from pyspark.sql.types import StructField, StructType, LongType, IntegerType, StringType
+from functions import get_file_name, is_csv_file, query_get_best_drivers, query_inner_join
 from pyspark.sql.functions import col
 from pyspark.sql.types import DoubleType
+from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 
 
 def test_get_file_name():
@@ -50,6 +50,29 @@ def test_is_csv_files():
     assert expected_results == results
 
 
+def test_query_inner_join(spark_session):
+    data_1 = [("A", 1), ("B", 2), ("C", 3)]
+    columns_1 = ["common_column", "value_1"]
+    mock_df_1 = spark_session.createDataFrame(data_1, columns_1)
+
+    data_2 = [("A", 10), ("B", 20), ("D", 30)]
+    columns_2 = ["common_column", "value_2"]
+    mock_df_2 = spark_session.createDataFrame(data_2, columns_2)
+
+    result_df = query_inner_join(mock_df_1, mock_df_2, "common_column")
+
+    schema = StructType([
+        StructField("common_column", StringType(), True),
+        StructField("value_1", IntegerType(), True),
+        StructField("value_2", IntegerType(), True),
+    ])
+
+    expected_data = [("A", 1, 10), ("B", 2, 20)]
+    expected_result = spark_session.createDataFrame(expected_data, schema)
+
+    assert result_df.collect() == expected_result.collect()
+
+
 def test_query_get_best_drivers(spark_session):
     mock_route = [(1, '1', 10), (2, '2', 20), (3, '3', 30)]
     mock_driver = [(100, 'Hoyt', 'A'),
@@ -63,7 +86,7 @@ def test_query_get_best_drivers(spark_session):
                      (1, 200, "2023-01-24"), (3, 400, "2023-02-24")]
 
     df_route = spark_session.createDataFrame(
-        mock_route, schema=['codigo', 'nombre', 'kilometros'])
+        mock_route, schema=['codigo', 'nombre_ruta', 'kilometros'])
     df_driver = spark_session.createDataFrame(
         mock_driver, schema=['cedula', 'nombre', 'provincia'])
     df_activity = spark_session.createDataFrame(
