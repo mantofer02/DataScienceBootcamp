@@ -1,0 +1,125 @@
+{
+  "identificador": "11111",
+  "viajes": [
+    {
+      "codigo_postal_origen": "25001",
+      "codigo_postal_destino": "25002",
+      "kilometros": "15.2",
+      "precio_kilometro": "400"
+    },
+    {
+      "codigo_postal_origen": "35001",
+      "codigo_postal_destino": "35002",
+      "kilometros": "18.7",
+      "precio_kilometro": "350"
+    },
+    {
+      "codigo_postal_origen": "45001",
+      "codigo_postal_destino": "45002",
+      "kilometros": "22.3",
+      "precio_kilometro": "300"
+    },
+    {
+      "codigo_postal_origen": "55001",
+      "codigo_postal_destino": "55002",
+      "kilometros": "12.9",
+      "precio_kilometro": "450"
+    },
+    {
+      "codigo_postal_origen": "65001",
+      "codigo_postal_destino": "65002",
+      "kilometros": "35.6",
+      "precio_kilometro": "280"
+    },
+    {
+      "codigo_postal_origen": "75001",
+      "codigo_postal_destino": "75002",
+      "kilometros": "40.8",
+      "precio_kilometro": "250"
+    },
+    {
+      "codigo_postal_origen": "85001",
+      "codigo_postal_destino": "85002",
+      "kilometros": "19.4",
+      "precio_kilometro": "500"
+    },
+    {
+      "codigo_postal_origen": "95001",
+      "codigo_postal_destino": "95002",
+      "kilometros": "25.6",
+      "precio_kilometro": "320"
+    },
+    {
+      "codigo_postal_origen": "105001",
+      "codigo_postal_destino": "105002",
+      "kilometros": "10.8",
+      "precio_kilometro": "550"
+    },
+    {
+      "codigo_postal_origen": "115001",
+      "codigo_postal_destino": "115002",
+      "kilometros": "8.3",
+      "precio_kilometro": "600"
+    },
+    {
+      "codigo_postal_origen": "125001",
+      "codigo_postal_destino": "125002",
+      "kilometros": "55.2",
+      "precio_kilometro": "320"
+    },
+    {
+      "codigo_postal_origen": "135001",
+      "codigo_postal_destino": "135002",
+      "kilometros": "21.6",
+      "precio_kilometro": "500"
+    },
+    {
+      "codigo_postal_origen": "145001",
+      "codigo_postal_destino": "145002",
+      "kilometros": "30.7",
+      "precio_kilometro": "350"
+    },
+    {
+      "codigo_postal_origen": "155001",
+      "codigo_postal_destino": "155002",
+      "kilometros": "14.4",
+      "precio_kilometro": "400"
+    },
+    {
+      "codigo_postal_origen": "165001",
+      "codigo_postal_destino": "165002",
+      "kilometros": "9.6",
+      "precio_kilometro": "550"
+    },
+    {
+      "codigo_postal_origen": "175001",
+      "codigo_postal_destino": "175002",
+      "kilometros": "28.1",
+      "precio_kilometro": "450"
+    },
+    {
+      "codigo_postal_origen": "185001",
+      "codigo_postal_destino": "185002",
+      "kilometros": "50.2",
+      "precio_kilometro": "280"
+    },
+    {
+      "codigo_postal_origen": "195001",
+      "codigo_postal_destino": "195002",
+      "kilometros": "13.7",
+      "precio_kilometro": "600"
+    },
+    {
+      "codigo_postal_origen": "205001",
+      "codigo_postal_destino": "205002",
+      "kilometros": "48.5",
+      "precio_kilometro": "320"
+    },
+    {
+      "codigo_postal_origen": "215001",
+      "codigo_postal_destino": "215002",
+      "kilometros": "11.2",
+      "precio_kilometro": "550"
+    }
+  ]
+}

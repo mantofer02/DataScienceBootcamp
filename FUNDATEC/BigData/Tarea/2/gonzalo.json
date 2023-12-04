@@ -1,0 +1,95 @@
+{
+  "identificador": "99999",
+  "viajes": [
+    {
+      "codigo_postal_origen": "27001",
+      "codigo_postal_destino": "27002",
+      "kilometros": "18.4",
+      "precio_kilometro": "380"
+    },
+    {
+      "codigo_postal_origen": "37001",
+      "codigo_postal_destino": "37002",
+      "kilometros": "22.1",
+      "precio_kilometro": "350"
+    },
+    {
+      "codigo_postal_origen": "47001",
+      "codigo_postal_destino": "47002",
+      "kilometros": "28.7",
+      "precio_kilometro": "300"
+    },
+    {
+      "codigo_postal_origen": "57001",
+      "codigo_postal_destino": "57002",
+      "kilometros": "15.9",
+      "precio_kilometro": "450"
+    },
+    {
+      "codigo_postal_origen": "67001",
+      "codigo_postal_destino": "67002",
+      "kilometros": "42.3",
+      "precio_kilometro": "280"
+    },
+    {
+      "codigo_postal_origen": "77001",
+      "codigo_postal_destino": "77002",
+      "kilometros": "35.8",
+      "precio_kilometro": "250"
+    },
+    {
+      "codigo_postal_origen": "87001",
+      "codigo_postal_destino": "87002",
+      "kilometros": "21.4",
+      "precio_kilometro": "500"
+    },
+    {
+      "codigo_postal_origen": "97001",
+      "codigo_postal_destino": "97002",
+      "kilometros": "26.6",
+      "precio_kilometro": "320"
+    },
+    {
+      "codigo_postal_origen": "107001",
+      "codigo_postal_destino": "107002",
+      "kilometros": "13.8",
+      "precio_kilometro": "550"
+    },
+    {
+      "codigo_postal_origen": "117001",
+      "codigo_postal_destino": "117002",
+      "kilometros": "10.3",
+      "precio_kilometro": "600"
+    },
+    {
+      "codigo_postal_origen": "127001",
+      "codigo_postal_destino": "127002",
+      "kilometros": "48.2",
+      "precio_kilometro": "320"
+    },
+    {
+      "codigo_postal_origen": "137001",
+      "codigo_postal_destino": "137002",
+      "kilometros": "20.6",
+      "precio_kilometro": "500"
+    },
+    {
+      "codigo_postal_origen": "147001",
+      "codigo_postal_destino": "147002",
+      "kilometros": "29.7",
+      "precio_kilometro": "350"
+    },
+    {
+      "codigo_postal_origen": "157001",
+      "codigo_postal_destino": "157002",
+      "kilometros": "12.4",
+      "precio_kilometro": "400"
+    },
+    {
+      "codigo_postal_origen": "167001",
+      "codigo_postal_destino": "167002",
+      "kilometros": "8.6",
+      "precio_kilometro": "550"
+    }
+  ]
+}
