@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.functions import explode
+from pyspark.sql.types import StructType, StructField, StringType, DoubleType
 
 
 def init_spark():
@@ -149,6 +150,15 @@ def create_metrics_df(trips_register_df, spark):
         ("codigo_postal_destino_con_mas_ingresos", most_revenue_destiny)
     ]
 
-    df = spark.createDataFrame(metrics_df, schema=["metrica", "valor"])
+    metrics_df = [(metric, float(valor)) for metric, valor in metrics_df]
+
+    # Create a schema
+    schema = StructType([
+        StructField("metrica", StringType(), True),
+        StructField("valor", DoubleType(), True)
+    ])
+
+    # Create the DataFrame
+    df = spark.createDataFrame(metrics_df, schema=schema)
 
     return df

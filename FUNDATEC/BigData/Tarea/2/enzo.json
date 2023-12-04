@@ -5,19 +5,19 @@
       "codigo_postal_origen": "20001",
       "codigo_postal_destino": "20002",
       "kilometros": "10.5",
-      "precio_kilometro": "400"
+      "precio_kilometro": "4000"
     },
     {
       "codigo_postal_origen": "30001",
       "codigo_postal_destino": "30002",
       "kilometros": "15.7",
-      "precio_kilometro": "350"
+      "precio_kilometro": "3500"
     },
     {
       "codigo_postal_origen": "40001",
       "codigo_postal_destino": "40002",
       "kilometros": "25.3",
-      "precio_kilometro": "300"
+      "precio_kilometro": "30022"
     },
     {
       "codigo_postal_origen": "50001",
@@ -119,7 +119,7 @@
       "codigo_postal_origen": "210001",
       "codigo_postal_destino": "210002",
       "kilometros": "9.8",
-      "precio_kilometro": "550"
+      "precio_kilometro": "1200"
     }
   ]
 }

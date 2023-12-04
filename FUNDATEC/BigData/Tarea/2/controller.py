@@ -1,6 +1,4 @@
 import functions
-from pyspark.sql.functions import explode
-from pyspark.sql import functions as F
 
 
 def read_json_data(file_paths, spark):
