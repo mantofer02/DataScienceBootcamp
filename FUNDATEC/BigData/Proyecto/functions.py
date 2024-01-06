@@ -55,3 +55,10 @@ def aggregate_dataframe(df, groupby_columns, avg_columns):
     aggregated_df = df.groupBy(*groupby_columns).agg(*avg_exprs)
 
     return aggregated_df
+
+
+def inner_join_dataframes(df1, df2, join_column_df1, join_column_df2):
+    joined_df = df1.join(
+        df2, on=[join_column_df1 == join_column_df2], how="inner")
+
+    return joined_df
