@@ -5,7 +5,12 @@ from pyspark.sql.functions import col, to_date, date_format, year, month, concat
 
 
 def init_spark():
-    spark = SparkSession.builder.appName("HomeWork_MarcoFerraro").getOrCreate()
+    spark = SparkSession \
+        .builder \
+        .appName("Basic JDBC pipeline") \
+        .config("spark.driver.extraClassPath", "postgresql-42.2.14.jar") \
+        .config("spark.executor.extraClassPath", "postgresql-42.2.14.jar") \
+        .getOrCreate()
     sc = spark.sparkContext
     return spark, sc
 

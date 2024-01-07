@@ -50,4 +50,13 @@ def run(file_paths):
 
     df = functions.drop_columns(df, ["market_date"])
 
+    df.write \
+        .format("jdbc") \
+        .mode('overwrite') \
+        .option("url", "jdbc:postgresql://host.docker.internal:5433/postgres") \
+        .option("user", "postgres") \
+        .option("password", "testPassword") \
+        .option("dbtable", "gold_table") \
+        .save()
+
     pp.pprint(df.show())
