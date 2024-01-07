@@ -1,6 +1,9 @@
 import functions
 import pprint
 
+CLIMATE_TABLE = "climate_data_nepal"
+MARKET_TABLE = "kalimati_market_data"
+
 
 def read_csv_data(file_path, spark):
     df = spark.read.csv(file_path, header=True, inferSchema=True)
@@ -19,4 +22,32 @@ def run(file_paths):
 
         database[db_name] = read_csv_data(file_path, spark)
 
-    pp.pprint(database["climate_data_nepal"].show())
+    database[CLIMATE_TABLE] = functions.drop_null_rows(
+        database[CLIMATE_TABLE])
+    database[MARKET_TABLE] = functions.drop_null_rows(
+        database[MARKET_TABLE])
+
+    database[CLIMATE_TABLE] = functions.drop_columns(
+        database[CLIMATE_TABLE], ["LAT", "LON", "PRECTOT", "PS", "QV2M", "RH2M", "T2MWET", "T2M_RANGE", "TS", "WS10M", "WS10M_MAX", "WS10M_MIN", "WS10M_RANGE", "WS50M", "WS50M_MAX", "WS50M_MIN", "WS50M_RANGE"])
+    database[MARKET_TABLE] = functions.drop_columns(
+        database[MARKET_TABLE], ["SN"])
+
+    database[CLIMATE_TABLE] = functions.transform_date_format(
+        database[CLIMATE_TABLE], "DATE")
+
+    database[CLIMATE_TABLE] = functions.aggregate_dataframe(
+        database[CLIMATE_TABLE], ["DATE", "DISTRICT"], ["T2M", "T2M_MAX", "T2M_MIN"])
+    database[MARKET_TABLE] = functions.aggregate_dataframe(
+        database[MARKET_TABLE], ["Date", "Commodity"], ["Minimum", "Maximum", "Average"])
+
+    database[MARKET_TABLE] = database[MARKET_TABLE].withColumnRenamed(
+        "Date", "market_date")
+    database[CLIMATE_TABLE] = database[CLIMATE_TABLE].withColumnRenamed(
+        "DATE", "climate_date")
+
+    df = functions.inner_join_dataframes(
+        database[CLIMATE_TABLE], database[MARKET_TABLE], "climate_date", "market_date")
+
+    df = functions.drop_columns(df, ["market_date"])
+
+    pp.pprint(df.show())

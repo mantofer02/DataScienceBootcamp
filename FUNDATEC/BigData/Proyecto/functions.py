@@ -1,9 +1,7 @@
 from pyspark.sql.functions import to_date
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-from pyspark.sql.functions import explode
-from pyspark.sql.types import StructType, StructField, StringType, DoubleType
-from pyspark.sql.functions import to_date, date_format, year, month, concat_ws
+from pyspark.sql.functions import col, to_date, date_format, year, month, concat_ws
 
 
 def init_spark():
@@ -13,17 +11,12 @@ def init_spark():
 
 
 def transform_date_format(df, date_column, desired_format='yyyy-MM-dd'):
-    """
-    Parameters:
-        df (DataFrame): Input Spark DataFrame.
-        date_column (str): Name of the date column to transform.
-        desired_format (str): Desired date format (e.g., 'yyyy-MM-dd').
-    """
+    df = df.withColumn(date_column, to_date(df[date_column], 'M/d/yyyy'))
 
-    transformed_df = df.withColumn(date_column, date_format(
-        to_date(df[date_column]), desired_format))
+    df = df.withColumn(date_column, date_format(
+        df[date_column], desired_format))
 
-    return transformed_df
+    return df
 
 
 def drop_columns(df, columns_to_drop):
@@ -58,7 +51,11 @@ def aggregate_dataframe(df, groupby_columns, avg_columns):
 
 
 def inner_join_dataframes(df1, df2, join_column_df1, join_column_df2):
-    joined_df = df1.join(
-        df2, on=[join_column_df1 == join_column_df2], how="inner")
+
+    # Create a Column object for the join condition
+    join_condition = col(join_column_df1) == col(join_column_df2)
+
+    # Perform inner join operation on the created join condition
+    joined_df = df1.join(df2, on=join_condition, how="inner")
 
     return joined_df
