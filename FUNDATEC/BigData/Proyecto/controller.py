@@ -28,15 +28,22 @@ def run(file_paths):
         database[MARKET_TABLE])
 
     database[CLIMATE_TABLE] = functions.drop_columns(
-        database[CLIMATE_TABLE], ["LAT", "LON", "PRECTOT", "PS", "QV2M", "RH2M", "T2MWET", "T2M_RANGE", "TS", "WS10M", "WS10M_MAX", "WS10M_MIN", "WS10M_RANGE", "WS50M", "WS50M_MAX", "WS50M_MIN", "WS50M_RANGE"])
+        database[CLIMATE_TABLE], ["DISTRICT", "LAT", "LON", "PRECTOT", "PS", "QV2M", "RH2M", "T2MWET", "T2M_RANGE", "TS", "WS10M", "WS10M_MAX", "WS10M_MIN", "WS10M_RANGE", "WS50M", "WS50M_MAX", "WS50M_MIN", "WS50M_RANGE"])
     database[MARKET_TABLE] = functions.drop_columns(
         database[MARKET_TABLE], ["SN"])
 
     database[CLIMATE_TABLE] = functions.transform_date_format(
         database[CLIMATE_TABLE], "DATE")
 
+    database[CLIMATE_TABLE] = functions.transform_date_drop_days(
+        database[CLIMATE_TABLE], "DATE"
+    )
+    database[MARKET_TABLE] = functions.transform_date_drop_days(
+        database[MARKET_TABLE], "Date"
+    )
+
     database[CLIMATE_TABLE] = functions.aggregate_dataframe(
-        database[CLIMATE_TABLE], ["DATE", "DISTRICT"], ["T2M", "T2M_MAX", "T2M_MIN"])
+        database[CLIMATE_TABLE], ["DATE"], ["T2M", "T2M_MAX", "T2M_MIN"])
     database[MARKET_TABLE] = functions.aggregate_dataframe(
         database[MARKET_TABLE], ["Date", "Commodity"], ["Minimum", "Maximum", "Average"])
 

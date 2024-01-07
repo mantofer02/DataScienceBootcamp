@@ -37,14 +37,10 @@ def drop_null_rows(df):
 
 
 def transform_date_drop_days(df, date_column):
-    """
-    Only works with yyyy-MM-dd format
-    """
-    # Extract the year and month from the specified date column
-    df_with_month_and_year = df.withColumn("Month_Year", concat_ws(
-        "-", year(df[date_column]), month(df[date_column])))
+    # Transform the date column to keep only the year and month in "yyyy-MM" format
+    df = df.withColumn(date_column, date_format(df[date_column], "yyyy-MM"))
 
-    return df_with_month_and_year
+    return df
 
 
 # Group by column and calculate averages
