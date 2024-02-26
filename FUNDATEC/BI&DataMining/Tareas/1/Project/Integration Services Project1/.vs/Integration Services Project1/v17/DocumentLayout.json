@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson4.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|solutionrelative:Lesson4.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson3.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|solutionrelative:Lesson3.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson2.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|solutionrelative:Lesson2.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson1.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{C38254D6-512C-41ED-8465-956A733C36ED}|Integration Services Project1.dtproj|solutionrelative:Lesson1.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Lesson2.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson2.dtsx",
+              "RelativeDocumentMoniker": "Lesson2.dtsx",
+              "ToolTip": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson2.dtsx [Design]",
+              "RelativeToolTip": "Lesson2.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-02-24T07:27:59.64Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lesson1.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson1.dtsx",
+              "RelativeDocumentMoniker": "Lesson1.dtsx",
+              "ToolTip": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson1.dtsx [Design]",
+              "RelativeToolTip": "Lesson1.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-02-24T07:27:26.557Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Lesson4.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson4.dtsx",
+              "RelativeDocumentMoniker": "Lesson4.dtsx",
+              "ToolTip": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson4.dtsx [Design]",
+              "RelativeToolTip": "Lesson4.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-02-24T06:53:22.54Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lesson3.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson3.dtsx",
+              "RelativeDocumentMoniker": "Lesson3.dtsx",
+              "ToolTip": "C:\\Users\\marco\\Escritorio\\DataScienceBootcamp\\FUNDATEC\\BI\u0026DataMining\\Tareas\\1\\Project\\Integration Services Project1\\Lesson3.dtsx [Design]",
+              "RelativeToolTip": "Lesson3.dtsx [Design]",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-02-24T06:33:44.128Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
