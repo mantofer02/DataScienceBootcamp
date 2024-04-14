@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/17/2024 11:20:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MARCO-DESKTOP"
+  DTS:CreatorName="MARCO-DESKTOP\marco"
+  DTS:DTSID="{EAABBB10-3267-4FA5-9BCA-CCB5335F7EC2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="InitTables"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{3BD80619-C06E-4ECA-B5D8-E8D11DC2DF20}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MARCO-DESKTOP.AnalyticsBU]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DD72F14A-DC86-461E-989B-6A56635D7E36}"
+      DTS:ObjectName="MARCO-DESKTOP.AnalyticsBU">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MARCO-DESKTOP;Initial Catalog=AnalyticsBU;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-InitTables-{DD72F14A-DC86-461E-989B-6A56635D7E36}MARCO-DESKTOP.AnalyticsBU;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MARCO-DESKTOP.WideWorldImporters]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7A4721B1-B4FB-4C3B-A01B-602D49CDE1AE}"
+      DTS:ObjectName="MARCO-DESKTOP.WideWorldImporters">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MARCO-DESKTOP;Initial Catalog=WideWorldImporters;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-InitTables-{7A4721B1-B4FB-4C3B-A01B-602D49CDE1AE}MARCO-DESKTOP.WideWorldImporters;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Init OrdersByCity Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{24FCF7F0-BBE2-465F-AE87-703207F81D2D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Init OrdersByCity Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DD72F14A-DC86-461E-989B-6A56635D7E36}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'Sales' AND TABLE_NAME = 'OrdersByCity')&#xA;BEGIN&#xA;    CREATE TABLE Sales.OrdersByCity (&#xA;        CityID INT,&#xA;        CityName NVARCHAR(100),&#xA;        OrderDate DATE,&#xA;        SupplierName NVARCHAR(100),&#xA;        SupplierCategory NVARCHAR(100)&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Init OrdersByCustomer Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{09A871FD-6CEA-450F-A8B1-5D07F17621E2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Init OrdersByCustomer Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DD72F14A-DC86-461E-989B-6A56635D7E36}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'Sales' AND TABLE_NAME = 'OrdersByCustomer')&#xA;BEGIN&#xA;    CREATE TABLE Sales.OrdersByCustomer (&#xA;        CustomerID INT,&#xA;        CustomerName NVARCHAR(30),&#xA;        OrderDate DATE,&#xA;        SupplierName NVARCHAR(30),&#xA;        SupplierCategory NVARCHAR(30)&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Init OrdersByDelivery Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B9BC4601-35B4-4E64-A1BC-9B4B1417AA73}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Init OrdersByDelivery Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DD72F14A-DC86-461E-989B-6A56635D7E36}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'Sales' AND TABLE_NAME = 'OrdersByDelivery')&#xA;BEGIN&#xA;    CREATE TABLE Sales.OrdersByDelivery (&#xA;        DeliveryMethodID INT,&#xA;        DeliveryMethod NVARCHAR(30),&#xA;        OrderDate DATE,&#xA;        SupplierName NVARCHAR(30),&#xA;        SupplierCategory NVARCHAR(30)&#xA;    );&#xA;END" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6D4A7001-E6CC-492E-AF8B-0DBFDE57B77B}"
+      DTS:From="Package\Init OrdersByCity Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Init OrdersByCustomer Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{10F0483C-464C-4CE6-80D9-CD77EA4B4303}"
+      DTS:From="Package\Init OrdersByCustomer Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Init OrdersByDelivery Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Init OrdersByCity Table"
+          TopLeft="19,5.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Init OrdersByCustomer Table"
+          TopLeft="5.50000000000003,107.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Init OrdersByDelivery Table"
+          TopLeft="9.00000000000003,209.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="113,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="113,149.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

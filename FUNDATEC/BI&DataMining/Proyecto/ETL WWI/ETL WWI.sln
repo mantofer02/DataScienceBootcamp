@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "ETL WWI", "ETL WWI.dtproj", "{BB6F28D9-CF40-4360-B666-C0CCE00388BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB6F28D9-CF40-4360-B666-C0CCE00388BE}.Development|Default.ActiveCfg = Development
+		{BB6F28D9-CF40-4360-B666-C0CCE00388BE}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A341099E-03CF-4143-9F1A-D0A7F0576882}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,247 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\geometry{
+    verbose,
+    tmargin=3cm,
+    bmargin=3cm,
+    lmargin=2cm,
+    rmargin=2cm,
+    headheight=2cm,
+    headsep=2cm,
+    footskip=2cm
+}
+
+\title{Quiz 0}
+\author{mantofer2000}
+\date{April 2024}
+
+
+\begin{document}
+
+\begin{flushleft}
+\begin{tabular}{|l|l|}
+\hline 
+ & \tabularnewline
+\textbf{\large{}Instituto Tecnológico de Costa Rica} & QUIZ 0\tabularnewline
+\textbf{\large{}Escuela de Computación} & Entrega: Domingo 14 de Abril, a través del TEC digital\tabularnewline
+ & Debe subir un \emph{pdf }con la respuesta,\tabularnewline
+Programa en Ciencias de Datos & generado con latex (adjunte los archivos .tex asociados).\tabularnewline
+\textbf{Curso: Estadistica} & \tabularnewline
+ & \tabularnewline
+Profesor: Ph. D. Saúl Calderón Ramírez & Valor: 100 pts.\tabularnewline
+ & Puntos Obtenidos: \_\_\_\_\_\_\_\_\_\_\_\_\tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+ & Nota: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\tabularnewline
+ & \tabularnewline
+\cline{2-2} 
+\multicolumn{2}{|c|}{}\tabularnewline
+\multicolumn{2}{|l|}{Nombre del (la) estudiante: \textbf{Marco Ferraro Rodriguez}}\tabularnewline
+\multicolumn{1}{|l}{} & \tabularnewline
+\multicolumn{1}{|l}{Carné: \textbf{1 1782 1786}} & \tabularnewline
+\multicolumn{1}{|l}{} & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{flushleft}
+\begin{enumerate}
+\item \textbf{(60 puntos)} Demuestre que el \emph{skew }o la inclinación
+de una función de densidad exponencial: 
+\[
+p\left(x|\lambda\right)=\lambda e^{-\lambda x}
+\]
+
+
+
+\par es siempre $\gamma=2$, tomando en cuenta que $\mathbb{E}\left[X^{3}\right]=\frac{6}{\lambda^{3}}$. 
+
+\par \textbf{Respuesta:} 
+
+Con respecto a lo visto en clase sabemos que 
+\[
+\gamma = E\left[ \left( \frac{{X - \mu}}{\sigma} \right)^3 \right]
+\]
+
+\par Así mismo, también conocemos que para una función de distribución exponencial
+
+\[
+\mu = \frac{1}{\lambda}
+\]
+
+\par También, del material sabemos que la varianza de una función distribución exponencial es 
+
+\[
+Var[X] = \frac{1}{\lambda^2}
+\]
+
+\par Para hacer la comprobación, debemos tener algunas propiedades fundamentales, asi como de linealidad de la esperanza en mente 
+
+\[
+E[c] = c
+\]
+\[
+E[cX] = cE[X]
+\]
+\[
+E[X + Y] = E[X] + E[Y]
+\]
+
+\par Teniendo este en mente, y con el uso de propiedades, podemos expresar el skew de la siguiente forma:
+
+\[
+\gamma = E\left[ \left( \frac{{X - \mu}}{\sigma} \right)^3 \right]
+\]
+
+\[
+\gamma = \frac{1}{\sigma^3}     E\left[ \left( X - \mu \right)^3 \right]
+\]
+
+\[
+\gamma = \frac{1}{\sigma^3}     E\left[ X^3 - 3X^2\mu + 3X\mu^2 - \mu^3  \right]
+\]
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( E\left[ X^3] - 3E[X^2]\mu + 3E[X]\mu^2 - \mu^3  \right)
+\]
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( E\left[ X^3] - 3\mu(E[X^2] - E[X]\mu) - \mu^3  \right)
+\]
+
+\par Recordemos que para este caso, mu es equivalente a la esperanza de X. 
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( E\left[ X^3] - 3\mu(E[X^2] - E[X]^2) - \mu^3  \right)
+\]
+
+\par Recordemos que la varianza puede expresarse en terminos de esperanza 
+
+\[
+Var(X) =  E[(X - E[X])^2]
+\]
+
+
+\[
+Var(X) =  E[X^2 - 2XE(X) + E(X)^2]
+\]
+
+\[
+Var(X) =  E(X^2) - 2E(X)E(X) + E(X)^2
+\]
+
+
+\[
+Var(X) =  E(X^2) - E(X)^2
+\]
+
+\par Teniendo esto, podemos sustituir en nuestra ecuación
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( E\left[ X^3] - 3\mu(Var(X) - \mu^3  \right)
+\]
+
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( E\left[ X^3] - 3\mu(\sigma^2) - \mu^3   \right)
+\]
+
+\par Remplazamos el supuesto que tenemos en el enunciado
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( \frac{6}{\lambda^3} - 3\mu(\sigma^2) - \mu^3)
+\]
+
+\[
+\gamma = \frac{1}{\sigma^3}    ( \frac{6}{\lambda^3} - \frac{3}{\lambda}(\sigma^2) - \frac{1}{\lambda^3})
+\]
+
+\par Recordemos que la desviación estándar es la raíz cuadrada de la varianza  
+
+\[
+\gamma = \frac{1}{\frac{1}{\lambda^3}  }    ( \frac{6}{\lambda^3} - \frac{3}{\lambda^3} - \frac{1}{\lambda^3})
+\]
+
+
+\[
+\gamma = \lambda^3   ( \frac{2}{\lambda^3})
+\]
+
+\[
+\gamma = 2
+\]
+\item \textbf{(40 puntos)} Con pytorch, genere 100 muestras de tamaño $N\text{=1000}$,
+usando una densidad exponencial. Hagalo para dos valores diferentes
+de $\lambda$ a su elección. Para esas muestras, calcule de forma
+vectorial el sesgo $\gamma$, y verifique la demostracion anterior.
+Adjunte el archivo jupyter con tal codigo. 
+\end{enumerate}
+
+\par \textbf{Respuesta (Archivo con Saluda Adjuntado):} 
+
+\begin{lstlisting}[language=Python, caption=Creación de Muestras]
+import torch
+lambda_a = 0.5 
+lambda_b = 173
+
+torch.manual_seed(42)
+
+num_samples = 100
+N = 1000
+
+samples_a = torch.empty(num_samples, N).exponential_(lambd=lambda_a)
+samples_b = torch.empty(num_samples, N).exponential_(lambd=lambda_b)
+
+print(samples_a.shape)
+print(samples_b.shape)
+
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Python, caption=Función de Skewness]
+def calculate_skewness(samples):
+    mean = torch.mean(samples)
+    std = torch.std(samples, unbiased=True)
+    skewness = torch.mean(((samples - mean) / std) ** 3)
+    return skewness
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption=Llamado de función]
+skewness_a = calculate_skewness(samples_a.flatten())
+skewness_b = calculate_skewness(samples_b.flatten())
+
+print("Skewness for samples_a:", skewness_a)
+print("Skewness for samples_b:", skewness_b)
+\end{lstlisting}
+
+\end{document}
