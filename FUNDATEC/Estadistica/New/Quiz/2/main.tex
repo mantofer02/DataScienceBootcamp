@@ -1,0 +1,619 @@
+\documentclass[spanish]{article}
+\usepackage{graphicx} % Required for 
+\usepackage[utf8]{inputenc}
+\usepackage{amstext}
+\usepackage{palatino}
+\usepackage{babel}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{palatino}
+\pagenumbering{gobble}
+
+\makeatother
+
+\usepackage{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+\begin{flushleft}
+\begin{tabular}{|l|l|}
+\hline 
+ & \tabularnewline
+\textbf{\large{}Instituto Tecnológico de Costa Rica} & QUIZ 3\tabularnewline
+\textbf{\large{}Escuela de Computación} & Entrega: Jueves 16 de Mayo, a través del TEC digital\tabularnewline
+ & Debe subir un \emph{pdf }con la respuesta.\tabularnewline
+Programa de Ciencias de los Datos & \tabularnewline
+\textbf{Curso: Estadistica} & \tabularnewline
+ & \tabularnewline
+Profesor: Ph. D. Saúl Calderón Ramírez & Valor: 100 pts.\tabularnewline
+ & Puntos Obtenidos: \_\_\_\_\_\_\_\_\_\_\_\_\tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+ & Nota: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\tabularnewline
+ & \tabularnewline
+\cline{2-2} 
+\multicolumn{2}{|c|}{}\tabularnewline
+\multicolumn{2}{|l|}{Nombre del (la) estudiante: Marco Ferraro Rodriguez}\tabularnewline
+\multicolumn{1}{|l}{} & \tabularnewline
+\multicolumn{1}{|l}{} & \tabularnewline
+\multicolumn{1}{|l}{} & \tabularnewline
+\hline 
+\end{tabular}
+\par\end{flushleft}
+\begin{enumerate}
+\item Su equipo tiene por objetivo constuir un modelo Bayesiano que estime
+si en 1 mes será necesario que una empresa eléctrica necesite racionar
+el suministro a sus clientes. Para ello, dado que la empresa eléctrica
+esta restringida a utilizar solamente fuentes de energía renovables
+(agua y viento), las variables de entrada para predecir si habrá cortes
+eléctricos en un mes ($t=1$) o no ($t=1$) serán la precipitación
+$P$ promedio del año hasta ese mes (medida en $l/m^{2}$ ) y la velocidad
+del viento $V$ promedio (medida en $\textrm{km}/h$ ) . Al cabo de
+un histórico de 5 años, la empresa eléctrica recopiló los datos en
+las tablas \ref{tab:Datos-para-la-P} y \ref{tab:Datos-para-la-P-1}.
+
+\selectlanguage{spanish}%
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\selectlanguage{english}%
+\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=400$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=500$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=600$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=700$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=800$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=900$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=1000$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=1100$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=1200$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$p=1300$\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\selectlanguage{english}%
+$t=0$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+5\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+6\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+9\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+11\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+12\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+16\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+18\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+13\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+5\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\selectlanguage{english}%
+$t=1$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+20\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+13\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+12\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+4\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+1\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+1\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+1\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\end{tabular}\caption{Datos para la variable aleatoria $P$.\label{tab:Datos-para-la-P}}
+\par\end{centering}
+\selectlanguage{english}%
+\selectlanguage{spanish}%
+\end{table}
+
+\end{enumerate}
+\begin{table}[h]
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\selectlanguage{english}%
+\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=5$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=10$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=15$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=20$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=25$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=30$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=35$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=40$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=45$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+$v=50$\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\selectlanguage{english}%
+$t=0$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+3\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+5\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+15\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+6\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+3\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+1\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\selectlanguage{english}%
+$t=1$\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+22\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+15\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+8\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+3\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+2\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+1\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+ & \selectlanguage{english}%
+0\selectlanguage{spanish}%
+\tabularnewline
+\hline 
+\end{tabular}\caption{Datos para la variable aleatoria $V$.\label{tab:Datos-para-la-P-1}}
+\end{table}
+
+\begin{enumerate}
+\item \textbf{(20 puntos)} Usando pytorch, use el histograma de los datos
+anteriores para estimar las densidades $p\left(m_{1}|t=0\right)$,
+$p\left(m_{1}|t=1\right),$$p\left(m_{2}|t=0\right)$, $p\left(m_{2}|t=1\right)$.
+$m_{1}=p$ (primer dimension) y $m_{2}=v$ (segunda dimension)
+\item \textbf{(50 puntos)} Utilizando los graficos anteriores, ajuste un
+modelo Gaussiano o exponencial, segun sea necesario (realice la justificacion
+segun lo observado en tales graficos), a cada una de las densidades
+$p\left(m_{1}|t=0\right)$, $p\left(m_{1}|t=1\right),$$p\left(m_{2}|t=0\right)$,
+$p\left(m_{2}|t=1\right)$. Muestre los pasos intermedios para estimar
+los parametros de tales modelos y documentelos. Grafique el modelo
+ajustado y muestre las tablas \foreignlanguage{english}{\ref{tab:Datos-para-la-P}
+y \ref{tab:Datos-para-la-P-1}} con las probabilidades estimadas por
+estos nuevos modelos. 
+\item \textbf{(30 puntos)} Usando Bayes, estime si habra corte electrico
+para una entrada $m_{1}=500$ y $m_{2}=10$. Muestre y explique los
+pasos intermedios.\selectlanguage{english}%
+\end{enumerate}
+
+
+\vspace{15px}
+\textbf{Respuesta}
+
+\vspace{15px}
+\vspace{5px}
+\textbf{Implementación de la solución}
+\vspace{5px}
+\textbf{Cálculo de Probabilidades Condicionales}
+\par Se calculan las probabilidades condicionales para P y V dado t (0 o 1) utilizando la función calcular\_probabilidad\_condicional.
+\vspace{5px}
+
+\textbf{Graficación de Histogramas}
+
+\par Se grafican los histogramas de las probabilidades condicionales utilizando la función graficar\_histograma. Los histogramas muestran la distribución de las probabilidades condicionales para cada valor de p y v dado t. Además, si se especifica, se ajusta y grafica una distribución normal o exponencial sobre el histograma.
+
+\vspace{15px}
+
+
+\begin{lstlisting}[language=Python, caption=Implementación de Funciones]
+import torch
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+
+
+def calcular_probabilidad_condicional(p, P_t):
+    """
+    Calcula la probabilidad condicional P(p | t) para todos los valores de p dado t.
+
+    Args:
+    p (torch.Tensor): Tensor con los valores de p.
+    P_t (torch.Tensor): Tensor con las ocurrencias de p dado t.
+
+    Returns:
+    torch.Tensor: Tensor con las probabilidades condicionales P(p | t).
+    """
+    total_t = P_t.sum()
+    probabilidades = P_t / total_t
+    return probabilidades
+
+
+def graficar_histograma(p, probabilidades, t_value, title, width=80, gauss=False, exponencial=False, lambda_param=0.5):
+    """
+    Grafica un histograma de las probabilidades condicionales y ajusta una distribución normal.
+
+    Args:
+    p (torch.Tensor): Tensor con los valores de p.
+    probabilidades (torch.Tensor): Tensor con las probabilidades condicionales.
+    t_value (int): Valor de t (0 o 1).
+    title (str): Título del histograma.
+    """
+    # Crear el histograma
+    plt.bar(p.numpy(), probabilidades.numpy(), width=width,
+            align='center', alpha=0.7, color='blue', edgecolor='black')
+
+    if gauss:
+        # Ajustar una distribución normal
+        mu = (p * probabilidades).sum()
+        sigma = torch.sqrt(((p - mu) ** 2 * probabilidades).sum())
+
+        pdf = (1 / (sigma * np.sqrt(2 * np.pi))) * \
+            np.exp(-0.5 * ((p - mu) / sigma) ** 2)
+        
+        dx = p[1] - p[0]
+        pdf = pdf * dx
+        
+        plt.plot(p.numpy(), pdf, color='red', linewidth=2)
+
+    if exponencial:
+        # Ajustar una distribución exponencial
+        min_p = p.min().item()
+        max_p = p.max().item()
+        x = np.linspace(min_p, max_p, p.numpy().size)
+
+        # Función de densidad de probabilidad (pdf)
+        pdf = lambda_param * np.exp(-lambda_param * x)
+
+        # Normalizar la pdf para que la suma sea 1
+        dx = x[1] - x[0]  # Diferencia entre puntos consecutivos
+        pdf_normalized = pdf / (pdf.sum() * dx)
+        pdf_normalized = pdf_normalized * dx
+        plt.plot(x, pdf_normalized, color='red', linewidth=2)
+
+
+    # Añadir etiquetas y título
+    plt.xlabel('P')
+    plt.ylabel(f'P(P | t = {t_value})')
+    plt.title(title)
+
+    # Mostrar el gráfico
+    plt.show()
+
+
+# Variables de precipitaciones
+p = torch.tensor([400, 500, 600, 700, 800, 900, 1000,
+                 1100, 1200, 1300], dtype=torch.float32)
+v = torch.tensor([5, 10, 15, 20, 25, 30, 35, 40, 45, 50], dtype=torch.float32)
+
+# Datos para la variable aleatoria P
+P_t0 = torch.tensor([5, 6, 9, 11, 12, 16, 18, 13, 5, 2], dtype=torch.float32)
+P_t1 = torch.tensor([20, 13, 12, 4, 2, 1, 2, 1, 2, 1], dtype=torch.float32)
+
+# Datos para la variable aleatoria V
+V_t0 = torch.tensor([2, 3, 5, 15, 6, 3, 1, 0, 0, 0], dtype=torch.float32)
+V_t1 = torch.tensor([22, 15, 8, 3, 2, 1, 0, 0, 0, 0], dtype=torch.float32)
+
+\end{lstlisting}
+\newpage
+\vspace{15px}
+\textbf{Respuesta 1)}
+
+
+
+
+\begin{lstlisting}[language=Python, caption=Calculo Probabilidades]
+
+# Calcular las probabilidades condicionales
+probabilidades_p_t0 = calcular_probabilidad_condicional(p, P_t0)
+probabilidades_p_t1 = calcular_probabilidad_condicional(p, P_t1)
+probabilidades_v_t0 = calcular_probabilidad_condicional(v, V_t0)
+probabilidades_v_t1 = calcular_probabilidad_condicional(v, V_t1)
+
+print('Probabilidades condicionales P(p | t = 0):', probabilidades_p_t0)
+print('Probabilidades condicionales P(p | t = 1):', probabilidades_p_t1)
+print('Probabilidades condicionales P(v | t = 0):', probabilidades_v_t0)
+print('Probabilidades condicionales P(v | t = 1):', probabilidades_v_t1)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption=Salida Probabilidades]
+
+Probabilidades condicionales P(p | t = 0): tensor([0.0515, 0.0619, 0.0928, 0.1134, 0.1237, 0.1649, 0.1856, 0.1340, 0.0515,
+        0.0206])
+Probabilidades condicionales P(p | t = 1): tensor([0.3448, 0.2241, 0.2069, 0.0690, 0.0345, 0.0172, 0.0345, 0.0172, 0.0345,
+        0.0172])
+Probabilidades condicionales P(v | t = 0): tensor([0.0571, 0.0857, 0.1429, 0.4286, 0.1714, 0.0857, 0.0286, 0.0000, 0.0000,
+        0.0000])
+Probabilidades condicionales P(v | t = 1): tensor([0.4314, 0.2941, 0.1569, 0.0588, 0.0392, 0.0196, 0.0000, 0.0000, 0.0000,
+        0.0000])
+
+\end{lstlisting}
+\begin{lstlisting}[language=Python, caption=Ejecucion Graficos]
+
+
+# Graficar los histogramas
+graficar_histograma(p, probabilidades_p_t0, 0, 'Histograma de P(P | t = 0)')
+graficar_histograma(p, probabilidades_p_t1, 1, 'Histograma de P(P | t = 1)')
+graficar_histograma(v, probabilidades_v_t0, 0,
+                    'Histograma de P(V | t = 0)',  width=2.5)
+graficar_histograma(v, probabilidades_v_t1, 1,
+                    'Histograma de P(V | t = 1)', width=2.5)
+\end{lstlisting}
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{hist1.png}
+    \caption{Histograma 1}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{hist2.png}
+    \caption{Histograma 2}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{hist3.png}
+    \caption{Histograma 3}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{hist4.png}
+    \caption{Histograma 4}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+\vspace{15px}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{1.png}
+    \caption{Histograma con Gauss 1}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{2.png}
+    \caption{Histograma con Exponencial 1}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{3.png}
+    \caption{Histograma con Gauss 2}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{4.png}
+    \caption{Histograma con Exponencial 2}
+    \label{fig:enter-label}
+\end{figure}
+
+\newpage
+\vspace{15px}
+\textbf{Respuesta 2)}
+
+\begin{lstlisting}[language=Python, caption=Calculo de Histogramas]
+
+# Graficar los histogramas
+pdf_p_t0 = graficar_histograma(p, probabilidades_p_t0, 0, 'Histograma de P(P | t = 0)', gauss=True)
+pdf_p_t1 =   graficar_histograma(p, probabilidades_p_t1, 1, 'Histograma de P(P | t = 1)', exponencial=True)
+pdf_v_t0 = graficar_histograma(v, probabilidades_v_t0, 0,
+                    'Histograma de P(V | t = 0)',  width=2.5, gauss=True)
+pdf_v_t1 = graficar_histograma(v, probabilidades_v_t1, 1,
+                    'Histograma de P(V | t = 1)', width=2.5, exponencial=True)
+
+print('pdf_p_t0:', pdf_p_t0)
+print('pdf_p_t1:', pdf_p_t1)
+print('pdf_v_t0:', pdf_v_t0)
+print('pdf_v_t1:', pdf_v_t1)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption=Salida]
+
+pdf_p_t0: tensor([0.0224, 0.0504, 0.0928, 0.1399, 0.1728, 0.1748, 0.1448, 0.0982, 0.0546,
+        0.0248])
+pdf_p_t1: [1.00000000e+000 1.92874985e-022 3.72007598e-044 7.17509597e-066
+ 1.38389653e-087 2.66919022e-109 5.14820022e-131 9.92959040e-153
+ 1.91516960e-174 3.69388307e-196]
+pdf_v_t0: tensor([2.5916e-02, 1.0318e-01, 2.3333e-01, 2.9974e-01, 2.1873e-01, 9.0665e-02,
+        2.1348e-02, 2.8553e-03, 2.1694e-04, 9.3625e-06])
+pdf_v_t1: [9.17915001e-01 7.53470516e-02 6.18486263e-03 5.07684440e-04
+ 4.16732766e-05 3.42075085e-06 2.80792329e-07 2.30488379e-08
+ 1.89196383e-09 1.55301848e-10]
+
+
+\end{lstlisting}
+
+\vspace{5px}
+En el código, se están graficando histogramas de probabilidades condicionales y ajustando curvas de distribuciones teóricas (normal y exponencial) sobre estos histogramas. Esto se hace con el fin de visualizar si los datos empíricos se asemejan a alguna distribución conocida.
+
+\vspace{5px}
+Además, dependiendo de los parámetros `gauss` y `exponencial`, la función ajusta una curva de distribución normal o exponencial, respectivamente, sobre el histograma. Esto se logra calculando los parámetros de la distribución teórica (media y desviación estándar para la normal, y el parámetro lambda para la exponencial) a partir de los datos empíricos.
+
+\vspace{5px}
+Para la distribución normal, se calcula la media `mu` como la suma ponderada de los valores `p` por sus probabilidades, y la desviación estándar `sigma` como la raíz cuadrada de la suma ponderada de los cuadrados de las desviaciones de `p` respecto a `mu`. Luego, se evalúa la función de densidad de probabilidad (pdf) de la distribución normal con estos parámetros y se grafica sobre el histograma.
+
+\vspace{5px}
+Para la distribución exponencial, se calcula el parámetro `lambda\_param` y se evalúa la pdf de la distribución exponencial en un rango de valores `x` que cubre los datos empíricos. Luego, se normaliza la pdf para que su suma sea 1 (propiedad de una función de densidad de probabilidad válida) y se grafica sobre el histograma.
+
+\vspace{5px}
+Al ajustar estas curvas teóricas sobre los histogramas empíricos, se puede visualizar si los datos se asemejan a alguna de estas distribuciones conocidas. 
+
+\newpage
+\textbf{Respuesta 3)}
+\vspace{5px}
+Para estimar si habrá un corte eléctrico usando el teorema de Bayes con las entradas \( m1 = 500 \) y \( m2 = 10 \), seguimos los siguientes pasos: Primero, definimos las variables y los datos: \( P \) representa la precipitación, \( V \) representa la velocidad del viento, y \( t \) es la variable que indica si hay corte eléctrico (\( t = 1 \)) o no (\( t = 0 \)). Los datos de las ocurrencias de \( P \) y \( V \) dado \( t \) están en los tensores \texttt{P\_t0}, \texttt{P\_t1}, \texttt{V\_t0}, y \texttt{V\_t1}. Luego, calculamos las probabilidades condicionales \( P(P | t = 0) \) y \( P(P | t = 1) \) para la precipitación, y \( P(V | t = 0) \) y \( P(V | t = 1) \) para la velocidad del viento. Aplicamos el teorema de Bayes para calcular \( P(t = 1 | P = m1, V = m2) \) usando la fórmula:
+
+\[
+P(t = 1 | P = m1, V = m2) = \frac{P(P = m1 | t = 1) \cdot P(V = m2 | t = 1) \cdot P(t = 1)}{P(P = m1) \cdot P(V = m2)}
+\]
+
+y de manera similar para \( P(t = 0 | P = m1, V = m2) \). Finalmente, comparamos las probabilidades \( P(t = 1 | P = m1, V = m2) \) y \( P(t = 0 | P = m1, V = m2) \) para determinar si es más probable que haya un corte eléctrico. Este enfoque permite estimar la probabilidad de un corte eléctrico dado los valores de precipitación y velocidad del viento utilizando el teorema de Bayes.
+
+
+\begin{lstlisting}[language=Python, caption=Calculo Bayes]
+
+
+probabilidades_p_t0 = calcular_probabilidad_condicional(p, P_t0)
+probabilidades_p_t1 = calcular_probabilidad_condicional(p, P_t1)
+probabilidades_v_t0 = calcular_probabilidad_condicional(v, V_t0)
+probabilidades_v_t1 = calcular_probabilidad_condicional(v, V_t1)
+
+# Definir las entradas
+m1 = 500
+m2 = 10
+
+# Encontrar los índices correspondientes a m1 y m2
+index_p = (p == m1).nonzero(as_tuple=True)[0].item()
+index_v = (v == m2).nonzero(as_tuple=True)[0].item()
+
+# Calcular las probabilidades a priori
+P_t1_prior = 0.5  # Asumimos que P(t=1) = P(t=0) = 0.5
+P_t0_prior = 0.5
+
+# Calcular las probabilidades condicionales
+P_m1_given_t1 = probabilidades_p_t1[index_p].item()
+P_m2_given_t1 = probabilidades_v_t1[index_v].item()
+P_m1_given_t0 = probabilidades_p_t0[index_p].item()
+P_m2_given_t0 = probabilidades_v_t0[index_v].item()
+
+# Calcular las probabilidades marginales
+P_m1 = P_m1_given_t1 * P_t1_prior + P_m1_given_t0 * P_t0_prior
+P_m2 = P_m2_given_t1 * P_t1_prior + P_m2_given_t0 * P_t0_prior
+
+# Aplicar el teorema de Bayes
+P_t1_given_m1_m2 = (P_m1_given_t1 * P_m2_given_t1 * P_t1_prior) / (P_m1 * P_m2)
+P_t0_given_m1_m2 = (P_m1_given_t0 * P_m2_given_t0 * P_t0_prior) / (P_m1 * P_m2)
+
+# Mostrar los resultados
+print(f"P(t=1 | P={m1}, V={m2}) = {P_t1_given_m1_m2}")
+print(f"P(t=0 | P={m1}, V={m2}) = {P_t0_given_m1_m2}")
+
+# Determinar si habrá corte eléctrico
+if P_t1_given_m1_m2 > P_t0_given_m1_m2:
+    print("Es probable que haya un corte eléctrico.")
+else:
+    print("Es probable que no haya un corte eléctrico.")
+
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption=Salida Bayes]
+
+P(t=1 | P=500, V=10) = 1.2137203944943804
+P(t=0 | P=500, V=10) = 0.09761463300808174
+Es probable que haya un corte eléctrico.
+\end{lstlisting}
+
+\end{document}
